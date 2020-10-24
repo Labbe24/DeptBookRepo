@@ -5,6 +5,7 @@ namespace DeptBook.Models
     public class Debtor
     {
         private string _name;
+        private float _debt;
 
         public string Name
         {
@@ -18,10 +19,23 @@ namespace DeptBook.Models
             }
         }
 
+        public float Debt
+        {
+            get
+            {
+                return _debt;
+            }
+            set
+            {
+                _debt = value;
+            }
+        }
+
 
         public Debtor(string name, float debtcredit)
         {
             _name = name;
+            _debt = debtcredit;
         }
     }
 }

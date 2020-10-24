@@ -17,6 +17,7 @@
         </Grid.ColumnDefinitions>
 
         <DataGrid Grid.Column="0"
+                  ItemsSource="{Binding Path=Debtors}"
                   Margin="9"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
