@@ -19,9 +19,7 @@ namespace DeptBook.ViewModels
                 new Debtor("Thomas Gammelby", 100),
                 new Debtor("Jens Nørby Kristensen", 1200),
                 new Debtor("Joachim Leth Krøyer", -1000),
-                new Debtor("Andreas Støve", 12200),
-                new Debtor("Magnus Nygaard Lund", 0),
-                new Debtor("Lasse Andresen", 0)
+                new Debtor("Andreas Støve", 12200)
                 #endif
             };
         }

@@ -4,6 +4,26 @@
              xmlns:local="clr-namespace:DeptBook"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+         <!--ButtonAddStyle-->
+         <Style x:Key="ButtonAddStyle" TargetType="{x:Type Button}">
+             <Style.Setters>
+                 <Setter Property="Height" Value="32"></Setter>
+                 <Setter Property="Width" Value="200"></Setter>
+                 <Setter Property="Margin" Value="10"></Setter>
+                 <Setter Property="Foreground" Value="LimeGreen"></Setter>
+                 <Setter Property="FontWeight" Value="ExtraBold"></Setter>
+                 <Setter Property="FontSize" Value="16"></Setter>
+                 <Setter Property="FontFamily" Value="Arial"></Setter>
+             </Style.Setters>
+             <Style.Triggers>
+                 <Trigger Property="Button.IsMouseOver" Value="True">
+                     <Setter Property="Effect">
+                         <Setter.Value>
+                             <DropShadowEffect ShadowDepth="3"/>
+                         </Setter.Value>
+                     </Setter>
+                 </Trigger>
+             </Style.Triggers>
+         </Style>
     </Application.Resources>
 </Application>
