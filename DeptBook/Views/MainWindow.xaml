@@ -12,8 +12,8 @@
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -36,6 +36,8 @@
         <Button Grid.Column="1"
                 Content="Add new debtor"
                 VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Command="{Binding Path=AddNewDebtorCommand}"
                 Style="{StaticResource ResourceKey=ButtonAddStyle}"
                 >
         </Button>

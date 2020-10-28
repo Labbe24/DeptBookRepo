@@ -31,7 +31,7 @@ namespace DeptBook.Models
             }
         }
 
-
+        public Debtor() { }
         public Debtor(string name, float debtcredit)
         {
             _name = name;

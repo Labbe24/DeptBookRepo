@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Text;
-using DeptBook.Models;
+using Prism.Commands;
 using Prism.Mvvm;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using DeptBook.Models;
+using DeptBook.Views;
 
 namespace DeptBook.ViewModels
 {
@@ -26,13 +29,48 @@ namespace DeptBook.ViewModels
 
         public ObservableCollection<Debtor> Debtors 
         {
+            get { return debtors; }
+            set { debtors = value; }
+        }
+
+        Debtor currentDebtor = null;
+        public Debtor CurrentDebtor
+        {
+            get { return currentDebtor; }
+            set {  currentDebtor = value; }
+        }
+
+        int currentIndex = -1;
+        public int CurrentIndex
+        {
+            get { return currentIndex; }
+            set { currentIndex = value; }
+        }
+
+        ICommand _newCommand;
+        public ICommand AddNewDebtorCommand
+        {
             get
             {
-                return debtors;
-            }
-            set
-            {
-                debtors = value;
+                return _newCommand ?? (_newCommand = new DelegateCommand(() =>
+                {
+                    var newDebtor = new Debtor();
+                    var vm = new DebtorViewModel("Add new agent", newDebtor)
+                    {
+                        // Specialities = specialities
+                    };
+                    var dlg = new DebtorView
+                    {
+                        DataContext = vm
+                    };
+                    if (dlg.ShowDialog() == true)
+                    {
+                        Debtors.Add(newDebtor);
+                        CurrentDebtor = newDebtor;
+                        // CurrentSpecialityIndex = 0;
+                        // Dirty = true;
+                    }
+                }));
             }
         }
     }
