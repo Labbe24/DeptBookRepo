@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:DeptBook"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
+        
          <!--ButtonAddStyle-->
          <Style x:Key="ButtonAddStyle" TargetType="{x:Type Button}">
              <Style.Setters>
@@ -25,5 +26,16 @@
                  </Trigger>
              </Style.Triggers>
          </Style>
+        
+        <!--TextBoxStule-->
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Style.Setters>
+                <Setter Property="FontSize" Value="12pt" />
+                <Setter Property="FontFamily" Value="Consolas" />
+                <Setter Property="BorderThickness" Value="3" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="Margin" Value="5" />
+            </Style.Setters>
+        </Style>
     </Application.Resources>
 </Application>

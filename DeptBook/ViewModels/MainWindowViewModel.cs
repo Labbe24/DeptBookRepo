@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using DeptBook.Models;
 using DeptBook.Views;
+using Unity.Injection;
+using System.Windows;
 
 namespace DeptBook.ViewModels
 {
@@ -55,9 +57,9 @@ namespace DeptBook.ViewModels
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
                     var newDebtor = new Debtor();
-                    var vm = new DebtorViewModel("Add new agent", newDebtor)
+                    var vm = new DebtorViewModel("Add new debtor", newDebtor)
                     {
-                        // Specialities = specialities
+                        
                     };
                     var dlg = new DebtorView
                     {
@@ -67,11 +69,41 @@ namespace DeptBook.ViewModels
                     {
                         Debtors.Add(newDebtor);
                         CurrentDebtor = newDebtor;
-                        // CurrentSpecialityIndex = 0;
-                        // Dirty = true;
+                        
+                    }
+                }));
+            }
+        } 
+        
+        ICommand _editCommand;
+        public ICommand EditDebtorCommand
+        {
+            get
+            {
+                return _editCommand ?? (_editCommand = new DelegateCommand(() =>
+                {
+                    var tempDebtor = CurrentDebtor.Clone();
+                    var vm = new DebtorViewModel("Edit debtor", tempDebtor)
+                    {
+                       
+                    };
+                    var dlg = new DebtorView
+                    {
+                        DataContext = vm,
+                        Owner = App.Current.MainWindow
+                    };
+                    if (dlg.ShowDialog() == true)
+                    {
+                        
+                        CurrentDebtor.Name = tempDebtor.Name;
+                        CurrentDebtor.Debt = tempDebtor.Debt;
+                        
+                        
                     }
                 }));
             }
         }
+
+       
     }
 }

@@ -21,5 +21,11 @@ namespace DeptBook.Views
         {
             InitializeComponent();
         }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            
+        }
     }
 }

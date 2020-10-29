@@ -9,7 +9,7 @@ using DeptBook.Models;
 
 namespace DeptBook.ViewModels
 {
-    public class DebtorViewModel
+    public class DebtorViewModel : BindableBase
     {
         public DebtorViewModel(string title, Debtor debtor)
         {
@@ -50,6 +50,28 @@ namespace DeptBook.ViewModels
             //}
         }
 
-        
+        ICommand _saveBtnCommand;
+        public ICommand SaveBtnCommand
+        {
+            get
+            {
+                return _saveBtnCommand ?? (_saveBtnCommand = new DelegateCommand(
+                    SaveBtnCommand_Execute, SaveBtnCommand_CanExecute)
+                  .ObservesProperty(() => CurrentDebtor.Name)
+                  .ObservesProperty(() => CurrentDebtor.Debt));
+            }
+        }
+
+        private void SaveBtnCommand_Execute()
+        {
+            // Nothing needs to be done here
+        }
+
+        private bool SaveBtnCommand_CanExecute()
+        {
+            return true;
+        }
+
+
     }
 }

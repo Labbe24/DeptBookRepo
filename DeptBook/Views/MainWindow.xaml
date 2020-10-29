@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeptBook"
         xmlns:viewModels="clr-namespace:DeptBook.ViewModels"
+        xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
         Title="The Debt Book" Height="350" Width="700">
     <Window.DataContext>
@@ -16,31 +17,51 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Column="0"
                   ItemsSource="{Binding Path=Debtors}"
+                  SelectedItem="{Binding Path=CurrentDebtor}"
                   IsSynchronizedWithCurrentItem="True"
                   HorizontalAlignment="Left"
-                  Margin="9"
+                  Margin="9,9,0,6"
                   Padding="4"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   IsReadOnly="True"
                   MinRowHeight="20"
                   MinColumnWidth="150"
-                  Name="dgDebtors">
+                  Name="dgDebtors" 
+                  Width="316">
         </DataGrid>
 
-        <Button Grid.Column="1"
-                Content="Add new debtor"
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Button Content="Add new debtor"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Command="{Binding Path=AddNewDebtorCommand}"
-                Style="{StaticResource ResourceKey=ButtonAddStyle}"
+                Style="{StaticResource ResourceKey=ButtonAddStyle}" Height="32" Margin="10,10,0,0" Width="200"
                 >
-        </Button>
+            </Button>
+
+            <Button Grid.Row="1"
+                Content="Edit debtor"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Command="{Binding Path=EditDebtorCommand}"
+                Style="{StaticResource ResourceKey=ButtonAddStyle}" Height="32" Margin="10,10,0,0" Width="200"
+                >
+            </Button>
+
+            
+        </Grid>
+        
 
     </Grid>
 </Window>

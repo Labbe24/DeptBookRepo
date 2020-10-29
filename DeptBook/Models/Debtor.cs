@@ -1,12 +1,24 @@
 ﻿using Prism.Mvvm;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace DeptBook.Models
 {
-    public class Debtor
+    public class Debtor : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void Notify([CallerMemberName]string propName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
+
         private string _name;
         private float _debt;
 
+        public Debtor Clone()
+        {
+            return this.MemberwiseClone() as Debtor;
+        }
         public string Name
         {
             get
