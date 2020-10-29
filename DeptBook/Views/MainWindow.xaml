@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DeptBook"
         xmlns:viewModels="clr-namespace:DeptBook.ViewModels"
         mc:Ignorable="d"
-        Title="The Debt Book" Height="350" Width="600">
+        Title="The Debt Book" Height="350" Width="700">
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>
     </Window.DataContext>

@@ -50,25 +50,6 @@ namespace DeptBook.ViewModels
             //}
         }
 
-        ICommand _addBtnCommand;
-        public ICommand AddBtnCommand
-        {
-            get
-            {
-                return _addBtnCommand ?? (_addBtnCommand = new DelegateCommand(
-                    AddBtnCommand_Execute, AddBtnCommand_CanExecute)
-                    .ObservesProperty(() => CurrentDebtor.Name));
-            }
-        }
-
-        private void AddBtnCommand_Execute()
-        {
-
-        }
-
-        private bool AddBtnCommand_CanExecute()
-        {
-            return IsValid;
-        }
+        
     }
 }

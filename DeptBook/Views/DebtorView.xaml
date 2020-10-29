@@ -4,9 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeptBook.Views"
+        xmlns:viewModels="clr-namespace:DeptBook.ViewModels"
         mc:Ignorable="d"
         Title="DebtorView" Height="450" Width="800">
+    
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Labels -->
+        <Label Grid.Row="0" Grid.Column="0">Name</Label>
+        <Label Grid.Row="1" Grid.Column="0">Initial Value</Label>
+
+        <!-- TextBox -->
+        <TextBox Grid.Row="0" 
+                 Grid.Column="1"
+                 Name="tbxName">
+
+        </TextBox>
     </Grid>
 </Window>
