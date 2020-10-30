@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace DeptBook.Models
 {
-    public class Debtor : INotifyPropertyChanged
+    public class Debtor : BindableBase
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void Notify([CallerMemberName]string propName = null)
@@ -27,7 +27,7 @@ namespace DeptBook.Models
             }
             set
             {
-                _name = value;
+                SetProperty(ref _name, value);
             }
         }
 
@@ -39,7 +39,7 @@ namespace DeptBook.Models
             }
             set
             {
-                _debt = value;
+                SetProperty(ref _debt, value);
             }
         }
 

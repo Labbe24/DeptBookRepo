@@ -103,8 +103,7 @@ namespace DeptBook.ViewModels
                         
                         CurrentDebtor.Name = tempDebtor.Name;
                         CurrentDebtor.Debt = tempDebtor.Debt;
-                        
-                        
+                                                             
                     }
                 }));
             }
