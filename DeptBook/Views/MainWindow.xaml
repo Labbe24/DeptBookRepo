@@ -23,6 +23,7 @@
         <DataGrid Grid.Column="0"
                   ItemsSource="{Binding Path=Debtors}"
                   SelectedItem="{Binding Path=CurrentDebtor}"
+                  SelectedIndex="{Binding Path=CurrentIndex}"
                   IsSynchronizedWithCurrentItem="True"
                   HorizontalAlignment="Left"
                   Margin="9,9,0,6"
