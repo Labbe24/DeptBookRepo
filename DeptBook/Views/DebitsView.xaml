@@ -7,15 +7,17 @@
         xmlns:viewModels="clr-namespace:DeptBook.ViewModels"
         mc:Ignorable="d"
         Title="DebitsView" Height="450" Width="600">
+    
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="43*"></ColumnDefinition>
+            <ColumnDefinition Width="32*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Column="0"
@@ -32,31 +34,36 @@
                   MinColumnWidth="150"
                   Name="dgDebits" 
                   Width="316">
-            
+
         </DataGrid>
 
         <Button Grid.Row="1"
                 Grid.Column="0"
+                HorizontalAlignment="Center"
                 Style="{StaticResource ButtonAddStyle}"
                 Name="btnClose"
+                Click="BtnSave_Click"
                 IsCancel="True"
                 Content="Close">
-            
+
         </Button>
 
         <StackPanel Grid.Row="0"
                    Grid.Column="1">
             <TextBox Name="tbxAdd"
+                     Margin="8"
+                     Text="{Binding Path=DebtValue}"
                      Style="{StaticResource TextBoxStyle}"
                      MinWidth="15" Width="175">
-                     
-            
+
+
             </TextBox>
 
             <Button Style="{StaticResource ButtonAddStyle}"
                     Name="btnAdd"
-                    Content="Add">
-                
+                    Content="Add"
+                    Command="{Binding Path=AddDebitCommand}">
+
             </Button>
         </StackPanel>
     </Grid>

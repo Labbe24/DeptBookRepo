@@ -16,6 +16,7 @@ namespace DeptBook.Models
         }
 
         private string _name;
+        private float _totaldebt;
         private float _debt;
 
         private ObservableCollection<Debits> debits;
@@ -41,6 +42,26 @@ namespace DeptBook.Models
             }
         }
 
+        public float TotalDebt
+        {
+            get
+            {
+                return _totaldebt;
+            }
+            set
+            {
+                //SetProperty(ref _totaldebt, value);
+                //Debits.Add(new Models.Debits(value, DateTime.Now));
+                //Debits.Add(new Models.Debits(_debt, DateTime.Now));
+            }
+        }
+
+        public void UpdateTotal()
+        {
+            TotalDebt = Sum();
+        }
+
+        
         public float Debt
         {
             get
@@ -49,8 +70,8 @@ namespace DeptBook.Models
             }
             set
             {
-                SetProperty(ref _debt, value);
                 Debits.Add(new Models.Debits(value, DateTime.Now));
+                UpdateTotal();
             }
         }
 
@@ -73,7 +94,7 @@ namespace DeptBook.Models
             _name = name;
             Debits = new ObservableCollection<Debits>();
             Debits.Add(new Models.Debits(debtcredit, DateTime.Now));
-            _debt = Sum();
+            _totaldebt = Sum();
         }
 
         

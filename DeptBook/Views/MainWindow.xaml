@@ -24,6 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Column="0"
@@ -47,6 +48,25 @@
             </i:Interaction.Triggers>
         </DataGrid>
 
+        <ListView Grid.Row="1" 
+                  Grid.Column="0"
+                  Name="lvDebits"
+                  Margin="10"
+                  ItemsSource="{Binding Path=Debtors}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="160" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Total debt" Width="160" DisplayMemberBinding="{Binding TotalDebt}"/>
+                </GridView>
+            </ListView.View>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <prism:InvokeCommandAction Command="{Binding EditDebtorCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+        </ListView>
+
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -54,8 +74,8 @@
             </Grid.RowDefinitions>
             
             <Button Content="Add new debtor"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
                 Command="{Binding Path=AddNewDebtorCommand}"
                 Style="{StaticResource ResourceKey=ButtonAddStyle}" Height="32" Margin="10,10,0,0" Width="200"
                 >
@@ -63,8 +83,8 @@
 
             <Button Grid.Row="1"
                 Content="Edit debtor"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
                 Command="{Binding Path=EditDebtorCommand}"
                 Style="{StaticResource ResourceKey=ButtonAddStyle}" Height="32" Margin="10,10,0,0" Width="200"
                 >

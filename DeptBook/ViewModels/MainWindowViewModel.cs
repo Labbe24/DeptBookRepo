@@ -72,6 +72,7 @@ namespace DeptBook.ViewModels
                     {
                         Debtors.Add(newDebtor);
                         CurrentDebtor = newDebtor;
+                        CurrentDebtor.UpdateTotal();
                         
                     }
                 }));
@@ -86,7 +87,7 @@ namespace DeptBook.ViewModels
                 return _editCommand ?? (_editCommand = new DelegateCommand(() =>
                 {
                     var tempDebtor = CurrentDebtor.Clone();
-                    var vm = new DebtorViewModel("Edit debtor", tempDebtor);
+                    var vm = new DebitsViewModel("Edit debtor", tempDebtor);
                     var dlg = new DebitsView
                     {
                         DataContext = vm,
@@ -96,8 +97,9 @@ namespace DeptBook.ViewModels
                     {
                         
                         CurrentDebtor.Name = tempDebtor.Name;
-                        CurrentDebtor.Debt = tempDebtor.Debt;
-                                                             
+                        CurrentDebtor.TotalDebt = tempDebtor.Sum();
+                        CurrentDebtor.Debits = tempDebtor.Debits;
+
                     }
                 }));
             }
