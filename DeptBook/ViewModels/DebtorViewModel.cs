@@ -18,6 +18,8 @@ namespace DeptBook.ViewModels
             CurrentDebtor = debtor;
         }
 
+        #region Properties
+
         string title;
 
         public string Title
@@ -25,7 +27,7 @@ namespace DeptBook.ViewModels
             get { return title; }
             set
             {
-                title = value;
+                SetProperty(ref title, value);
             }
         }
 
@@ -33,7 +35,10 @@ namespace DeptBook.ViewModels
         public Debtor CurrentDebtor
         {
             get { return currentDebtor; }
-            set { currentDebtor = value; }
+            set
+            {
+                SetProperty(ref currentDebtor, value);
+            }
         }
 
         public bool IsValid
@@ -54,6 +59,10 @@ namespace DeptBook.ViewModels
             //    SetProperty(ref isValid, value);
             //}
         }
+
+        #endregion
+
+        #region Commands
 
         ICommand _saveBtnCommand;
         public ICommand SaveBtnCommand
@@ -77,6 +86,6 @@ namespace DeptBook.ViewModels
             return IsValid;
         }
 
-
+        #endregion
     }
 }

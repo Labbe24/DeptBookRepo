@@ -29,25 +29,31 @@ namespace DeptBook.ViewModels
             };
         }
 
+        #region Properties
+
         public ObservableCollection<Debtor> Debtors 
         {
             get { return debtors; }
-            set { debtors = value; }
+            set { SetProperty(ref debtors, value); }
         }
 
         Debtor currentDebtor = null;
         public Debtor CurrentDebtor
         {
             get { return currentDebtor; }
-            set {  currentDebtor = value; }
+            set { SetProperty(ref currentDebtor, value); }
         }
 
         int currentIndex = -1;
         public int CurrentIndex
         {
             get { return currentIndex; }
-            set { currentIndex = value; }
+            set { SetProperty(ref currentIndex, value); }
         }
+
+        #endregion
+
+        #region Commands
 
         ICommand _newCommand;
         public ICommand AddNewDebtorCommand
@@ -87,7 +93,7 @@ namespace DeptBook.ViewModels
                     {
                        
                     };
-                    var dlg = new DebitsView
+                    var dlg = new DebtorView
                     {
                         DataContext = vm,
                         Owner = App.Current.MainWindow
@@ -96,12 +102,14 @@ namespace DeptBook.ViewModels
                     {
                         
                         CurrentDebtor.Name = tempDebtor.Name;
-                        CurrentDebtor.Debt = tempDebtor.Debt;  
+                        CurrentDebtor.Debt = tempDebtor.Debt;
+                                                             
                     }
                 }));
             }
         }
 
-       
+        #endregion
+
     }
 }
