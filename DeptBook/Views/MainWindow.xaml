@@ -11,7 +11,10 @@
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid>
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="E" Command="{Binding EditDebtorCommand}" />
+    </Window.InputBindings>
+     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -35,6 +38,7 @@
                   MinColumnWidth="150"
                   Name="dgDebtors" 
                   Width="316">
+            
         </DataGrid>
 
         <Grid Grid.Column="1">
@@ -58,6 +62,7 @@
                 Command="{Binding Path=EditDebtorCommand}"
                 Style="{StaticResource ResourceKey=ButtonAddStyle}" Height="32" Margin="10,10,0,0" Width="200"
                 >
+               
             </Button>
 
             
