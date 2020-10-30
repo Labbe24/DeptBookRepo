@@ -9,10 +9,10 @@
          <Style x:Key="ButtonAddStyle" TargetType="{x:Type Button}">
              <Style.Setters>
                  <Setter Property="Height" Value="32"></Setter>
-                 <Setter Property="Width" Value="200"></Setter>
+                 <Setter Property="Width" Value="175"></Setter>
                  <Setter Property="Margin" Value="10"></Setter>
                  <Setter Property="Foreground" Value="Black"></Setter>
-                 <Setter Property="FontWeight" Value="ExtraBold"></Setter>
+                 <Setter Property="FontWeight" Value="DemiBold"></Setter>
                  <Setter Property="FontSize" Value="16"></Setter>
                  <Setter Property="FontFamily" Value="Arial"></Setter>
              </Style.Setters>
@@ -20,7 +20,7 @@
                  <Trigger Property="Button.IsMouseOver" Value="True">
                      <Setter Property="Effect">
                          <Setter.Value>
-                             <DropShadowEffect ShadowDepth="3"/>
+                             <DropShadowEffect ShadowDepth="1"/>
                          </Setter.Value>
                      </Setter>
                  </Trigger>

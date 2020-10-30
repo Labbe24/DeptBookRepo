@@ -87,7 +87,7 @@ namespace DeptBook.ViewModels
                     {
                        
                     };
-                    var dlg = new DebtorView
+                    var dlg = new DebitsView
                     {
                         DataContext = vm,
                         Owner = App.Current.MainWindow
@@ -96,9 +96,7 @@ namespace DeptBook.ViewModels
                     {
                         
                         CurrentDebtor.Name = tempDebtor.Name;
-                        CurrentDebtor.Debt = tempDebtor.Debt;
-                        
-                        
+                        CurrentDebtor.Debt = tempDebtor.Debt;  
                     }
                 }));
             }

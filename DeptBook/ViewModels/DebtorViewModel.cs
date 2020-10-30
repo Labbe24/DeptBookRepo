@@ -6,6 +6,7 @@ using Prism.Mvvm;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using DeptBook.Models;
+using System.Windows;
 
 namespace DeptBook.ViewModels
 {
@@ -41,7 +42,11 @@ namespace DeptBook.ViewModels
             {
                 bool isValid = true;
                 if (string.IsNullOrWhiteSpace(CurrentDebtor.Name))
+                {
                     isValid = false;
+                    MessageBox.Show("No name entered");
+                }
+                 
                 return isValid;
             }
             //set
@@ -69,7 +74,7 @@ namespace DeptBook.ViewModels
 
         private bool SaveBtnCommand_CanExecute()
         {
-            return true;
+            return IsValid;
         }
 
 

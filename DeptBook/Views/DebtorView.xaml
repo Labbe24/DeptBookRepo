@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:DeptBook.Views"
         xmlns:viewModels="clr-namespace:DeptBook.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" Height="200" Width="350">
+        WindowStartupLocation="CenterOwner"
+        FocusManager.FocusedElement="{Binding ElementName=tbxName}"
+        Title="{Binding Path=Title}" Height="250" Width="350">
     
     <Grid>
         <Grid.RowDefinitions>
@@ -38,11 +40,13 @@
                  Name="tbxInitValue"
                  VerticalAlignment="Stretch"
                  Text="{Binding Path=CurrentDebtor.Debt}"
-                 Style="{StaticResource TextBoxStyle}">
+                 Style="{StaticResource TextBoxStyle}"
+                 TabIndex="1">
         </TextBox>
         
         <!-- Buttons -->
-        <Button Grid.Row="2"
+        <WrapPanel Grid.Column="1" Grid.Row="3">
+            <Button Grid.Row="2"
                 Grid.Column="0"
                 IsDefault="True"
                 Name="btnSave"
@@ -51,6 +55,16 @@
                 Content="_Save"
                 Style="{StaticResource ButtonAddStyle}"
                 Grid.ColumnSpan="2">
-        </Button>
+            </Button>
+
+            <Button Grid.Column="1"
+                    Grid.Row="4"
+                    IsCancel="True" 
+                    TabIndex="6"  
+                    Name="btnCancel" 
+                    Content="_Cancel"
+                    Style="{StaticResource ButtonAddStyle}">
+            </Button>
+        </WrapPanel>
     </Grid>
 </Window>

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeptBook"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:viewModels="clr-namespace:DeptBook.ViewModels"
         xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
@@ -21,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Column="0"
-                  ItemsSource="{Binding Path=Debtors}"
+                  ItemsSource="{Binding Path=Debtors, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding Path=CurrentDebtor}"
                   IsSynchronizedWithCurrentItem="True"
                   HorizontalAlignment="Left"
@@ -34,6 +35,11 @@
                   MinColumnWidth="150"
                   Name="dgDebtors" 
                   Width="316">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <prism:InvokeCommandAction Command="{Binding EditDebtorCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </DataGrid>
 
         <Grid Grid.Column="1">
