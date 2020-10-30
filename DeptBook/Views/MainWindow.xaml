@@ -12,6 +12,11 @@
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>
     </Window.DataContext>
+    
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="E" Command="{Binding EditDebtorCommand}" />
+    </Window.InputBindings>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>

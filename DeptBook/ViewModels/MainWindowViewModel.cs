@@ -63,10 +63,7 @@ namespace DeptBook.ViewModels
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
                     var newDebtor = new Debtor();
-                    var vm = new DebtorViewModel("Add new debtor", newDebtor)
-                    {
-                        
-                    };
+                    var vm = new DebtorViewModel("Add new debtor", newDebtor);
                     var dlg = new DebtorView
                     {
                         DataContext = vm
@@ -89,11 +86,8 @@ namespace DeptBook.ViewModels
                 return _editCommand ?? (_editCommand = new DelegateCommand(() =>
                 {
                     var tempDebtor = CurrentDebtor.Clone();
-                    var vm = new DebtorViewModel("Edit debtor", tempDebtor)
-                    {
-                       
-                    };
-                    var dlg = new DebtorView
+                    var vm = new DebtorViewModel("Edit debtor", tempDebtor);
+                    var dlg = new DebitsView
                     {
                         DataContext = vm,
                         Owner = App.Current.MainWindow

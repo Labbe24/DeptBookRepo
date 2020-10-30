@@ -41,23 +41,26 @@ namespace DeptBook.ViewModels
             }
         }
 
+        private bool isValid = true;
         public bool IsValid
         {
             get
             {
-                bool isValid = true;
+                // bool isValid = true;
                 if (string.IsNullOrWhiteSpace(CurrentDebtor.Name))
                 {
                     isValid = false;
-                    MessageBox.Show("No name entered");
+                }if (string.IsNullOrWhiteSpace(CurrentDebtor.Debt.ToString()))
+                {
+                    isValid = false;
                 }
                  
                 return isValid;
             }
-            //set
-            //{
-            //    SetProperty(ref isValid, value);
-            //}
+            set
+            {
+                SetProperty(ref isValid, value);
+            }
         }
 
         #endregion
@@ -83,7 +86,8 @@ namespace DeptBook.ViewModels
 
         private bool SaveBtnCommand_CanExecute()
         {
-            return IsValid;
+            // return IsValid;
+            return true;
         }
 
         #endregion
