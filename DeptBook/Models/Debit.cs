@@ -6,14 +6,14 @@ using System.Text;
 
 namespace DeptBook.Models
 {
-    public class Debits : BindableBase
+    public class Debit : BindableBase
     {
         private float debt;
         private DateTime datetime;
 
-        public Debits(){ }
+        public Debit(){ }
         
-        public Debits(float d, DateTime dt)
+        public Debit(float d, DateTime dt)
         {
             debt = d;
             datetime = dt;

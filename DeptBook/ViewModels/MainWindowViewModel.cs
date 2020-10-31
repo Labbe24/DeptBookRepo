@@ -21,10 +21,10 @@ namespace DeptBook.ViewModels
             debtors = new ObservableCollection<Debtor>
             {
                 #if DEBUG
-                new Debtor("Thomas Gammelby", 100),
-                new Debtor("Jens Nørby Kristensen", 1200),
-                new Debtor("Joachim Leth Krøyer", -1000),
-                new Debtor("Andreas Støve", 12200)
+                //new Debtor("Thomas Gammelby", 100),
+                //new Debtor("Jens Nørby Kristensen", 1200),
+                //new Debtor("Joachim Leth Krøyer", -1000),
+                //new Debtor("Andreas Støve", 12200)
                 #endif
             };
         }
@@ -71,9 +71,7 @@ namespace DeptBook.ViewModels
                     if (dlg.ShowDialog() == true)
                     {
                         Debtors.Add(newDebtor);
-                        CurrentDebtor = newDebtor;
-                        CurrentDebtor.UpdateTotal();
-                        
+                        CurrentDebtor = newDebtor;   
                     }
                 }));
             }
@@ -87,25 +85,20 @@ namespace DeptBook.ViewModels
                 return _editCommand ?? (_editCommand = new DelegateCommand(() =>
                 {
                     var tempDebtor = CurrentDebtor.Clone();
-                    var vm = new DebitsViewModel("Edit debtor", tempDebtor);
-                    var dlg = new DebitsView
+                    var vm = new DebitViewModel("Add debit", tempDebtor);
+                    var dlg = new DebitView
                     {
                         DataContext = vm,
                         Owner = App.Current.MainWindow
                     };
                     if (dlg.ShowDialog() == true)
                     {
-                        
                         CurrentDebtor.Name = tempDebtor.Name;
-                        CurrentDebtor.TotalDebt = tempDebtor.Sum();
                         CurrentDebtor.Debits = tempDebtor.Debits;
-
                     }
                 }));
             }
         }
-
         #endregion
-
     }
 }

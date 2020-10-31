@@ -12,7 +12,7 @@
                  <Setter Property="Width" Value="175"></Setter>
                  <Setter Property="Margin" Value="10"></Setter>
                  <Setter Property="Foreground" Value="Black"></Setter>
-                 <Setter Property="FontWeight" Value="DemiBold"></Setter>
+                 <Setter Property="FontWeight" Value="SemiBold"></Setter>
                  <Setter Property="FontSize" Value="16"></Setter>
                  <Setter Property="FontFamily" Value="Arial"></Setter>
              </Style.Setters>
@@ -27,14 +27,22 @@
              </Style.Triggers>
          </Style>
         
-        <!--TextBoxStule-->
+        <!--TextBoxStyle-->
         <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
             <Style.Setters>
                 <Setter Property="FontSize" Value="12pt" />
-                <Setter Property="FontFamily" Value="Consolas" />
-                <Setter Property="BorderThickness" Value="3" />
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter Property="BorderThickness" Value="2" />
                 <Setter Property="VerticalAlignment" Value="Top" />
                 <Setter Property="Margin" Value="5" />
+            </Style.Setters>
+        </Style>
+        
+        <!--LabelStyle-->
+        <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
+            <Style.Setters>
+                <Setter Property="FontSize" Value="9pt"/>
+                <Setter Property="FontFamily" Value="Arial"/>
             </Style.Setters>
         </Style>
     </Application.Resources>

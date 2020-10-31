@@ -15,9 +15,9 @@ namespace DeptBook.Views
     /// <summary>
     /// Interaction logic for DebitsView.xaml
     /// </summary>
-    public partial class DebitsView : Window
+    public partial class DebitView : Window
     {
-        public DebitsView()
+        public DebitView()
         {
             InitializeComponent();
         }

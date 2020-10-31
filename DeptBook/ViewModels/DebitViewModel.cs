@@ -10,9 +10,9 @@ using Prism.Commands;
 
 namespace DeptBook.ViewModels
 {
-    public class DebitsViewModel : BindableBase
+    public class DebitViewModel : BindableBase
     {
-        public DebitsViewModel(string title, Debtor debtor)
+        public DebitViewModel(string title, Debtor debtor)
         {
             CurrentDebtor = debtor;
             Title = title;
@@ -46,8 +46,8 @@ namespace DeptBook.ViewModels
             set { SetProperty(ref debtvalue, value); }
         }
 
-        private ObservableCollection<Debits> debits;
-        public ObservableCollection<Debits> Debits
+        private ObservableCollection<Debit> debits;
+        public ObservableCollection<Debit> Debits
         {
             get { return debits; }
             set { SetProperty(ref debits, value); }
@@ -71,7 +71,7 @@ namespace DeptBook.ViewModels
                 return _addDebitCommand ?? (_addDebitCommand = new DelegateCommand(() =>
                 {
 
-                    CurrentDebtor.Debits.Add(new Models.Debits(DebtValue, DateTime.Now));
+                    CurrentDebtor.Debits.Add(new Models.Debit(DebtValue, DateTime.Now));
   
                 }));
             }
