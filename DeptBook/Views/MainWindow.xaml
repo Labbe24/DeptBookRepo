@@ -16,18 +16,35 @@
     <Window.InputBindings>
         <KeyBinding Modifiers="Control" Key="E" Command="{Binding EditDebtorCommand}" />
     </Window.InputBindings>
-    
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
 
-        <DataGrid Grid.Column="0"
+    <DockPanel Name="dockPanelMain">
+        <Menu DockPanel.Dock="Top" Name="mainMenu">
+            <MenuItem Header="_File" >
+                <MenuItem Header="_New" Command="{Binding NewFileCommand}"/>
+                <MenuItem Header="_Open" Command="{Binding OpenFileCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}" />
+                <MenuItem Header="_Save" Command="{Binding SaveCommand}" />
+                <MenuItem Header="Save _As" Command="{Binding SaveAsCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}" />
+                <MenuItem Header="E_xit" Command="{Binding CloseAppCommand}"/>
+            </MenuItem>
+            <MenuItem Header="_Debtor">
+                <MenuItem Header="_Add new" Command="{Binding Path=AddNewDebtorCommand}"
+                          InputGestureText="ctrl+A"/>
+                <MenuItem Header="_Edit" Command="{Binding Path=EditDebtorCommand}"
+                          InputGestureText="ctrl+E"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!--<DataGrid Grid.Column="0"
                   ItemsSource="{Binding Path=Debtors, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding Path=CurrentDebtor}"
                   IsSynchronizedWithCurrentItem="True"
@@ -46,53 +63,75 @@
                     <prism:InvokeCommandAction Command="{Binding EditDebtorCommand}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-        </DataGrid>
+        </DataGrid>-->
 
-        <ListView Grid.Row="1" 
+                <ListView Grid.Row="0" 
+                  Grid.RowSpan="2"
                   Grid.Column="0"
                   Name="lvDebits"
                   Margin="10"
-                  ItemsSource="{Binding Path=Debtors}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name" Width="160" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Total debt" Width="160" DisplayMemberBinding="{Binding TotalDebt}"/>
-                </GridView>
-            </ListView.View>
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <prism:InvokeCommandAction Command="{Binding EditDebtorCommand}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+                  ItemsSource="{Binding Path=Debtors}"
+                  SelectedItem="{Binding Path=CurrentDebtor}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn 
+                                Header="Name" 
+                                Width="160" 
+                                DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn 
+                                Header="Total debt" 
+                                Width="160"
+                                DisplayMemberBinding="{Binding TotalDebt}"/>
+                        </GridView>
+                    </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <prism:InvokeCommandAction Command="{Binding EditDebtorCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
 
-        </ListView>
+                </ListView>
 
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            
-            <Button Content="Add new debtor"
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="83.51"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Button Content="Add new debtor"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Command="{Binding Path=AddNewDebtorCommand}"
                 Style="{StaticResource ResourceKey=ButtonAddStyle}" Height="32" Margin="10,10,0,0" Width="200"
                 >
-            </Button>
+                    </Button>
 
-            <Button Grid.Row="1"
+                    <Button Grid.Row="1"
                 Content="Edit debtor"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Command="{Binding Path=EditDebtorCommand}"
                 Style="{StaticResource ResourceKey=ButtonAddStyle}" Height="32" Margin="10,10,0,0" Width="200"
                 >
-            </Button>
+                    </Button>
 
-            
-        </Grid>
-        
 
-    </Grid>
+                </Grid>
+
+                <Image 
+            Grid.Row="1" 
+            Grid.Column="1"
+            Margin="10"
+            Source="/Image/ScroogeMcDuckPNG.png" >
+                </Image>
+
+
+
+            </Grid>
+    </DockPanel>
 </Window>

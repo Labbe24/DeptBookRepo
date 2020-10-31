@@ -50,7 +50,7 @@ namespace DeptBook.Models
             }
             set
             {
-                //SetProperty(ref _totaldebt, value);
+                SetProperty(ref _totaldebt, value);
                 //Debits.Add(new Models.Debits(value, DateTime.Now));
                 //Debits.Add(new Models.Debits(_debt, DateTime.Now));
             }

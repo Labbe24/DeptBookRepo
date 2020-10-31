@@ -7,6 +7,10 @@
         xmlns:viewModels="clr-namespace:DeptBook.ViewModels"
         mc:Ignorable="d"
         Title="DebitsView" Height="450" Width="600">
+
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="Enter" Command="{Binding AddDebitCommand}" />
+    </Window.InputBindings>
     
 
     <Grid>

@@ -9,6 +9,10 @@
         WindowStartupLocation="CenterOwner"
         FocusManager.FocusedElement="{Binding ElementName=tbxName}"
         Title="{Binding Path=Title}" Height="250" Width="350">
+
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="Enter" Command="{Binding SaveBtnCommand}" />
+    </Window.InputBindings>
     
     <Grid>
         <Grid.RowDefinitions>
@@ -44,17 +48,19 @@
                  TabIndex="1">
         </TextBox>
         
+
         <!-- Buttons -->
         <WrapPanel Grid.Column="1" Grid.Row="3">
+
             <Button Grid.Row="2"
-                Grid.Column="0"
-                IsDefault="True"
-                Name="btnSave"
-                Click="BtnSave_Click"
-                Command="{Binding Path=SaveBtnCommand}"
-                Content="_Save"
-                Style="{StaticResource ButtonAddStyle}"
-                Grid.ColumnSpan="2">
+                    Grid.Column="0"
+                    IsDefault="True"
+                    Name="btnSave"
+                    Click="BtnSave_Click"
+                    Command="{Binding Path=SaveBtnCommand}"
+                    Content="_Save"
+                    Style="{StaticResource ButtonAddStyle}"
+                    Grid.ColumnSpan="2">
             </Button>
 
             <Button Grid.Column="1"
