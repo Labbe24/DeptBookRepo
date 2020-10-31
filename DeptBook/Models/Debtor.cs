@@ -9,11 +9,7 @@ namespace DeptBook.Models
 {
     public class Debtor : BindableBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void Notify([CallerMemberName]string propName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
-        }
+        
 
         private string _name;
         private float _totaldebt;
@@ -36,14 +32,8 @@ namespace DeptBook.Models
         }
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                SetProperty(ref _name, value);
-            }
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
         }
 
         public float TotalDebt
