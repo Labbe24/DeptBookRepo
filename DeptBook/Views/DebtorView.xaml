@@ -27,8 +27,16 @@
         </Grid.ColumnDefinitions>
 
         <!-- Labels -->
-        <Label Grid.Row="0" Grid.Column="0">Name</Label>
-        <Label Grid.Row="1" Grid.Column="0">Initial Value</Label>
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               VerticalAlignment="Center"
+               Style="{StaticResource LabelStyle}">Name
+        </Label>
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               VerticalAlignment="Center"
+               Style="{StaticResource LabelStyle}">Initial Value
+        </Label>
 
         <!-- TextBox -->
         <TextBox Grid.Row="0" 
