@@ -87,7 +87,7 @@ namespace DeptBook.ViewModels
         private bool SaveBtnCommand_CanExecute()
         {
             // return IsValid;
-            return true;
+            return true; ;
         }
 
         #endregion

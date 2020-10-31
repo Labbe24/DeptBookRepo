@@ -106,19 +106,16 @@ namespace DeptBook.ViewModels
                 return _editCommand ?? (_editCommand = new DelegateCommand(() =>
                 {
                     var tempDebtor = CurrentDebtor.Clone();
-                    var vm = new DebitsViewModel("Edit debtor", tempDebtor);
-                    var dlg = new DebitsView
+                    var vm = new DebitViewModel("Edit debtor", tempDebtor);
+                    var dlg = new DebitView
                     {
                         DataContext = vm,
                         Owner = App.Current.MainWindow
                     };
                     if (dlg.ShowDialog() == true)
-                    {
-                        
-                        CurrentDebtor.Name = tempDebtor.Name;
+                    {    
                         CurrentDebtor.TotalDebt = tempDebtor.Sum();
                         CurrentDebtor.Debits = tempDebtor.Debits;
-
                     }
                 }));
             }
